@@ -9,6 +9,7 @@ import PreLoader from "./common/PreLoader";
 import { getPostsForHomePage } from "./store/post/postAction";
 import ProtectedRoute from "./common/ProtectedRoute";
 import NotFoundPage from "./common/NotFoundPage";
+import { IIMAGE_URL } from "./utils/constants";
 
 function App() {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function App() {
   const { isWait, error: postError } = useSelector((state) => state.post);
   const [showLoader, setShowLoader] = useState(true);
   const location = useLocation();
-console.log(process.env)
+  console.log(IIMAGE_URL);
   const fetchData = async () => {
     try {
       await dispatch(fetchAllCategories()).unwrap();
