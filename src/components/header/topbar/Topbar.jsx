@@ -79,8 +79,8 @@ const Topbar = ({ isOpen, toggleMenu }) => {
 
       <section className=" hidden md:block">
         <img
-          src={`${IIMAGE_URL}/${topbarAds[0]?.image}`}
-          className="self-right md:max-h-[80px] md:max-w-[650px] lg:max-h-[100px]  lg:max-w-[600px] "
+          src={`${topbarAds[0]?.image ? IIMAGE_URL / topbarAds[0]?.image : "AdBanner.png"}`}
+          className="self-right md:max-h-[80px] md:max-w-[650px]  lg:max-h-[96px]  lg:max-w-[500px] "
           alt="AdBanner"
         />
       </section>

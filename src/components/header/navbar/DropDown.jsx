@@ -12,17 +12,17 @@ const DropDown = ({ remainingCategories, toggleMenu, toggleDropdown }) => {
       onMouseOver={() => {
         toggleDropdown();
       }}
-      className={`lg:text-[17px] hover:bg-navbarBgColor hover:text-opacity-75  relative cursor-pointer z-50  md:font-semibold text-navTextColor flex gap-2 items-center group py-4 px-4`}
+      className={`group relative z-50 flex  w-full cursor-pointer items-center gap-2  px-4 py-4 text-navTextColor hover:bg-navbarBgColor hover:text-opacity-75 md:w-auto md:font-semibold lg:text-[17px]`}
     >
       अन्य
-      <IoTriangle className="rotate-180 text-xs cursor-pointer font-thin" />
-      <li className="absolute  text-[15px] top-14 z-50 w-screen hidden     md:w-36 px-5 md:px-0 -left-4  md:-left-10 h-auto  bg-navbarBgColor  pt-2 pb-5 md:pb-3 rounded-b-lg  group-hover:flex  flex-col ease-in-out  transition-all duration-1000">
+      <IoTriangle className="rotate-180 cursor-pointer text-xs font-thin" />
+      <li className="absolute  -left-4 top-14 z-50 hidden h-auto     w-screen flex-col rounded-b-lg bg-navbarBgColor  px-5 pb-5  pt-2  text-[15px] transition-all duration-1000 ease-in-out  group-hover:flex  md:-left-10 md:w-36  md:px-0 md:pb-3">
         {remainingCategories?.map((cat, i) => (
           <NavLink
             onClick={toggleMenu}
             to={decodeURIComponent(cat.slug)}
             key={i}
-            className=" hover:brightness-125  rounded-lg md:rounded-none hover:bg-navbarBgColor pl-3 pr-1 py-3 drop-shadow-lg cursor-pointer  text-navTextColor  truncate"
+            className=" cursor-pointer  truncate rounded-lg py-3 pl-3 pr-1 text-navTextColor drop-shadow-lg hover:bg-navbarBgColor  hover:brightness-125  md:rounded-none"
           >
             {cat.name}
           </NavLink>

@@ -17,7 +17,7 @@ function App() {
   const { isWait, error: postError } = useSelector((state) => state.post);
   const [showLoader, setShowLoader] = useState(true);
   const location = useLocation();
-  console.log(IIMAGE_URL);
+
   const fetchData = async () => {
     try {
       await dispatch(fetchAllCategories()).unwrap();

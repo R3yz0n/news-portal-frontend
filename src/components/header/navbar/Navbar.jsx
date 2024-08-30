@@ -112,7 +112,7 @@ const Navbar = ({ isOpen, toggleMenu }) => {
         <NavLink
           onClick={toggleMenu}
           to="/"
-          className={`z-[-50!important] cursor-pointer rounded-lg px-4 py-2 text-navTextColor drop-shadow-lg  hover:bg-navbarBgColor hover:brightness-125 md:rounded-none md:py-4 md:font-semibold lg:text-[18px]    ${
+          className={`z-[-50!important] w-full cursor-pointer rounded-lg px-4 py-2 text-navTextColor drop-shadow-lg hover:bg-navbarBgColor  hover:brightness-125 md:w-auto md:rounded-none md:py-4 md:font-semibold lg:text-[18px]    ${
             `/` === decodeURIComponent(location.pathname) ? "bg-red-600" : ""
           }`}
         >
@@ -123,7 +123,7 @@ const Navbar = ({ isOpen, toggleMenu }) => {
             onClick={toggleMenu}
             to={decodeURIComponent(cat?.slug)}
             key={i}
-            className={`-z-50  cursor-pointer rounded-lg px-4 py-2 text-navTextColor drop-shadow-lg hover:bg-navbarBgColor hover:brightness-125 md:rounded-none md:py-4 md:font-semibold lg:text-[18px]  ${
+            className={` -z-50  w-full cursor-pointer rounded-lg px-4 py-2 text-navTextColor drop-shadow-lg hover:bg-navbarBgColor hover:brightness-125 md:w-auto md:rounded-none md:py-4 md:font-semibold lg:text-[18px]  ${
               `/${cat.name}` === decodeURIComponent(location.pathname)
                 ? "bg-red-600 "
                 : ""
