@@ -1,3 +1,3 @@
 export const APIURL = process.env.REACT_APP_APIURL;
 
-export const IIMAGEURL = process.env.REACT_APP_IIMAGEURL;
+export const IIMAGE_URL = process.env.REACT_APP_IIMAGEURL;
