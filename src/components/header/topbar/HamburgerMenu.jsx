@@ -8,7 +8,7 @@ const HamburgerMenu = (props) => {
 
   return (
     <button
-      className={`group mr-2 flex h-12 w-14  flex-col items-center justify-center rounded ${props.style}  md:hidden`}
+      className={`group -mt-1 mr-2 flex h-10 w-14 flex-col  items-center justify-center rounded sm:-mt-0 ${props.style}  md:hidden`}
       // onClick={() => setIsOpen(!isOpen)}
       onClick={props.toggleMenu}
     >

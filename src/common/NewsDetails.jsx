@@ -18,6 +18,7 @@ const NewsDetails = () => {
 
   useEffect(() => {
     if (window.innerWidth > 768) window.scrollTo(0, 220);
+    else window.scrollTo(0, 0);
   });
 
   useEffect(() => {
