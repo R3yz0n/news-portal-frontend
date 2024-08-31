@@ -1,9 +1,9 @@
 const ImageSkeleton = () => {
   return (
-    <div className="border p-4 rounded shadow-2xl w-full h-full">
-      <div className="relative  mb-4 flex justify-center items-center bg-gray-300 animate-pulse h-full">
+    <div className="h-full w-full rounded border px-1 shadow-2xl md:p-4">
+      <div className="relative  mb-4 flex h-full animate-pulse items-center justify-center bg-gray-300">
         <svg
-          className="w-10 h-10 text-gray-200 dark:text-gray-600 "
+          className="h-10 w-10 text-gray-200 dark:text-gray-600 "
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"

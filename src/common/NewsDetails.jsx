@@ -17,7 +17,7 @@ const NewsDetails = () => {
   const componentRef = useRef();
 
   useEffect(() => {
-    window.scrollTo(0, 220);
+    if (window.innerWidth > 768) window.scrollTo(0, 220);
   });
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const NewsDetails = () => {
   });
 
   return (
-    <main className="container mx-auto p-4 md:p-8">
+    <main className=" container mx-auto px-1 sm:p-2 md:p-8">
       <section
         className="flex flex-col gap-4 md:gap-8 print:p-10"
         ref={componentRef}
@@ -54,7 +54,7 @@ const NewsDetails = () => {
           )}
         </div>
 
-        <h3 className="mt-4 text-2xl font-bold leading-tight text-gray-800 md:text-4xl">
+        <h3 className="mt-0 text-lg font-bold leading-tight text-gray-800 sm:text-lg md:mt-4 md:text-4xl">
           {postById?.title}
         </h3>
         <p className="flex flex-col-reverse gap-3 text-sm font-semibold text-gray-600 md:flex-row">
@@ -63,17 +63,18 @@ const NewsDetails = () => {
             | {displayDate}, {dayOfWeekName}
           </span>
         </p>
-
         <div className=" place-self-start rounded-sm bg-black bg-opacity-20">
-          <img
-            src={`${IIMAGE_URL}/${postDetailAds[0]?.image}`}
-            alt=""
-            className="h-[80px] w-full object-contain md:h-[100px] "
-            loading="lazy"
-          />
+          {postDetailAds[0]?.image && (
+            <img
+              src={`${IIMAGE_URL}/${postDetailAds[0]?.image}`}
+              alt=""
+              className="h-[80px] w-full object-contain md:h-[100px] "
+              loading="lazy"
+            />
+          )}
         </div>
         <p
-          className="mt-3 text-justify text-xl leading-8 text-gray-600"
+          className="text-justify text-base leading-7 text-gray-600 sm:mt-3 sm:text-xl md:leading-8"
           dangerouslySetInnerHTML={{ __html: postById?.body }}
         />
       </section>

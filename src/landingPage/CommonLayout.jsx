@@ -11,7 +11,7 @@ const CommonLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <section className="mx-auto  mb-6 mt-28 flex max-w-[1280px] flex-col gap-12 px-8 sm:gap-12 md:mt-12 xl:px-0 ">
+      <section className="mx-auto  mb-6 mt-28 flex max-w-[1280px] flex-col gap-8 px-2 sm:gap-12 md:mt-12 xl:px-0 ">
         <HeadlineNews />
         {location.pathname === "/ntg" && <AdvertisementBanner />}
         {children}

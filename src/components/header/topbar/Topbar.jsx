@@ -42,7 +42,7 @@ const Topbar = ({ isOpen, toggleMenu }) => {
     );
 
   return (
-    <main className="z-50 mx-auto flex items-center justify-between gap-2 px-4 md:mb-7 md:max-w-screen-lg lg:max-w-screen-xl ">
+    <main className="z-50 mx-auto flex items-center justify-between gap-2 pl-2 pr-1 md:mb-7 md:max-w-screen-lg lg:max-w-screen-xl ">
       {/* logo and text section */}
       <section className="flex gap-2 md:gap-0 ">
         {image ? (

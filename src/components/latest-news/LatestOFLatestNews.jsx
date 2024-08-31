@@ -14,7 +14,7 @@ const LatestOFLatestNews = () => {
   if (!isObject(featuredLatestNews)) return <></>;
   return (
     <section
-      className=" w-full h-auto  cursor-pointer group  overflow-hidden "
+      className=" group h-auto  w-full cursor-pointer  overflow-hidden "
       onClick={() => redirectToDetailsPage(featuredLatestNews?.id)}
     >
       <ImageOverlay

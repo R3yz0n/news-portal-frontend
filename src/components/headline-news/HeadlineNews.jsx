@@ -8,18 +8,18 @@ const HeadlineNews = () => {
 
   if (!headlineNews.length) return <></>;
   return (
-    <main className="relative  -z-50 flex w-full items-center overflow-hidden  rounded-lg bg-headlineBgColorSecondary ">
+    <main className="relative -z-50 -mt-4  flex w-full items-center overflow-hidden rounded-lg  bg-headlineBgColorSecondary md:-mt-0 ">
       <img
         src={news}
-        className="absolute z-10 h-[50px] sm:h-auto"
+        className="absolute z-10 h-10 sm:h-auto md:h-[50px]"
         alt="latest news"
       />
-      <h3 className=" absolute left-2 top-3 z-10  px-1 font-Mukta font-semibold text-white sm:h-full lg:text-xl">
+      <h3 className=" absolute left-2 top-3 z-10 -mt-1 px-1  font-Mukta text-sm font-semibold text-white sm:h-full md:mt-0 md:text-base lg:text-xl">
         प्रमुख समाचार
       </h3>
 
       <Marquee
-        className=" absolute left-3 bg-headlineBgColorSecondary  py-3 tracking-wide  text-white sm:px-6 md:text-base md:font-semibold lg:text-lg  "
+        className=" absolute left-3 bg-headlineBgColorSecondary py-2 text-sm  tracking-wide text-white  sm:px-6 sm:py-3 md:text-base md:font-semibold lg:text-lg  "
         speed={150}
       >
         <h4 className=" flex ">
