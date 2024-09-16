@@ -63,7 +63,7 @@ const EditUser = () => {
     handleChange,
     handleSubmit,
     setValues,
-    setFieldValue,  // Use this for specific fields like gender
+    setFieldValue, // Use this for specific fields like gender
   } = useFormik({
     initialValues: initialValues,
     validationSchema: editUserSchema,
@@ -86,7 +86,6 @@ const EditUser = () => {
         formData.append("profile_image", image.data);
       }
       console.log(image.data);
-      
 
       try {
         // Dispatch action to edit user by ID
@@ -103,7 +102,7 @@ const EditUser = () => {
     const fetchUser = async () => {
       try {
         const userData = await dispatch(fetchSingleUser(id)).unwrap();
-  
+
         if (userData?.fullname) {
           setValues({
             fullname: userData?.fullname,
@@ -111,9 +110,12 @@ const EditUser = () => {
             gender: userData?.gender,
             phone_no: userData?.phone_no,
           });
-  
+
           // Use a functional update for setImage to avoid adding 'image' in the dependency array
-          setImage((prevImage) => ({ ...prevImage, name: userData?.profile_image }));
+          setImage((prevImage) => ({
+            ...prevImage,
+            name: userData?.profile_image,
+          }));
         }
       } catch (error) {
         console.error("Error fetching user:", error);
@@ -196,13 +198,13 @@ const EditUser = () => {
           </aside>
 
           {/* Image Upload Component */}
-          <AddImage
+          {/* <AddImage
             handleImageChange={handleImageChange}
             image={image.data}
             error={image.error}
             name={image.name} // Show existing image name if available
             width="w-full lg:w-1/2"
-          />
+          /> */}
         </div>
 
         {/* Error Handling */}
@@ -210,7 +212,8 @@ const EditUser = () => {
           {typeof error === "string" && (
             <motion.div {...fadeInOut}>{error}</motion.div>
           )}
-          {error && typeof error === "object" &&
+          {error &&
+            typeof error === "object" &&
             Object.keys(error).map((key) => (
               <div key={key}>{error[key][0]}</div>
             ))}
