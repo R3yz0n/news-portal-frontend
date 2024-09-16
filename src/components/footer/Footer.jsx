@@ -84,7 +84,7 @@ const Footer = () => {
             Contact Information
           </h6>
           <p className="text-gray-300 transition-all duration-500 hover:underline">
-            Khurak Media Pvt. Ltd.
+            Nepathya Media Pvt. Ltd.
           </p>
           <p className="text-gray-300 transition-all duration-500 hover:underline">
             Butwal-10, Rupandehi
@@ -112,7 +112,7 @@ const Footer = () => {
       <section className="mt-10 flex flex-col gap-5 px-5  sm:mt-20">
         <hr />
         <div className="flex justify-around gap-28 text-xs text-gray-200 sm:gap-48 ">
-          <span>© 2023 Khurak Media Pvt. Ltd. All rights reserved.</span>
+          <span>© 2023 Nepathya Media Pvt. Ltd. All rights reserved.</span>
           <span>Site by: Bootwal R&D</span>
         </div>
       </section>

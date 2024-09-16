@@ -22,7 +22,7 @@ const DBLeft = () => {
         to="/"
         className="items flex items-center justify-start gap-4 pl-1 pt-2 text-2xl"
       >
-        <img src={Logo} className="w-25 mb-5" alt="Khurak Media" />
+        <img src={Logo} className="w-25 mb-5" alt="Nepathya Media" />
       </NavLink>
       <hr className="border-gray-400" />
 

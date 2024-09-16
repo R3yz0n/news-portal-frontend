@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import AddWrapper from "../../common/AddWrapper";
-import { isObject, useFormik } from "formik";
+import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import FormInput from "../../common/FormInput";
 import SubmitButton from "../../common/SubmitButton";
@@ -63,25 +63,38 @@ const EditUser = () => {
     handleChange,
     handleSubmit,
     setValues,
+    setFieldValue,  // Use this for specific fields like gender
   } = useFormik({
     initialValues: initialValues,
     validationSchema: editUserSchema,
     onSubmit: async (values) => {
+      // Check if the image is provided or already exists
       if (!image.data && !image.name) {
         setImage({ ...image, error: "Please select an image." });
         return;
       }
+
+      // Prepare form data for submission
       values.phone_no = values.phone_no.toString();
       const formData = new FormData();
       Object.entries(values).forEach(([key, value]) => {
         formData.append(key, value);
       });
-      formData.append("profile_image", image.data);
+
+      // Append image only if it's updated or provided
+      if (image.data) {
+        formData.append("profile_image", image.data);
+      }
+      console.log(image.data);
+      
 
       try {
+        // Dispatch action to edit user by ID
         await dispatch(editUserById({ formData, id })).unwrap();
         handleBack();
-      } catch (err) {}
+      } catch (err) {
+        console.error(err);
+      }
     },
   });
 
@@ -90,24 +103,25 @@ const EditUser = () => {
     const fetchUser = async () => {
       try {
         const userData = await dispatch(fetchSingleUser(id)).unwrap();
+  
         if (userData?.fullname) {
           setValues({
-            ...values,
             fullname: userData?.fullname,
             address: userData?.address,
             gender: userData?.gender,
             phone_no: userData?.phone_no,
-            password: userData?.password,
           });
-          setImage({ ...image, name: userData?.profile_image });
-          // console.log(postData);
+  
+          // Use a functional update for setImage to avoid adding 'image' in the dependency array
+          setImage((prevImage) => ({ ...prevImage, name: userData?.profile_image }));
         }
       } catch (error) {
-        // console.error("Error fetching advertisement:", error);
+        console.error("Error fetching user:", error);
       }
     };
     fetchUser();
-  }, [dispatch, id]);
+  }, [dispatch, id, setValues]);
+
   return (
     <AddWrapper
       title="Edit User"
@@ -117,7 +131,7 @@ const EditUser = () => {
       <form onSubmit={handleSubmit}>
         <div className=" grid w-full gap-x-10  gap-y-2 md:grid-cols-2">
           <FormInput
-            title="full name"
+            title="Full name"
             type="text"
             value={values.fullname}
             onChange={handleChange}
@@ -159,7 +173,7 @@ const EditUser = () => {
                   type="radio"
                   value={"male"}
                   checked={values.gender === "male"}
-                  onChange={handleChange}
+                  onChange={() => setFieldValue("gender", "male")}
                   onBlur={handleBlur}
                   name="gender"
                 />
@@ -168,7 +182,7 @@ const EditUser = () => {
                   type="radio"
                   value={"female"}
                   checked={values.gender === "female"}
-                  onChange={handleChange}
+                  onChange={() => setFieldValue("gender", "female")}
                   onBlur={handleBlur}
                   name="gender"
                 />
@@ -181,24 +195,28 @@ const EditUser = () => {
             </div>
           </aside>
 
+          {/* Image Upload Component */}
           <AddImage
             handleImageChange={handleImageChange}
             image={image.data}
             error={image.error}
-            name={image.name}
+            name={image.name} // Show existing image name if available
             width="w-full lg:w-1/2"
           />
         </div>
 
+        {/* Error Handling */}
         <div className="ml-2 min-h-[5px] self-start text-sm text-red-600">
           {typeof error === "string" && (
             <motion.div {...fadeInOut}>{error}</motion.div>
           )}
-          {isObject(error) &&
+          {error && typeof error === "object" &&
             Object.keys(error).map((key) => (
               <div key={key}>{error[key][0]}</div>
             ))}
         </div>
+
+        {/* Submit Button */}
         <SubmitButton value="submit" handleSubmit={handleSubmit} />
       </form>
     </AddWrapper>

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCompany } from "../../../store/company/companyAction";
 import { IIMAGE_URL } from "../../../utils/constants";
+import { fetchAllHomepageAds } from "../../../store/ads/adsAction"; // New import
 import moment from "moment";
 
 const Topbar = ({ isOpen, toggleMenu }) => {
@@ -16,9 +17,13 @@ const Topbar = ({ isOpen, toggleMenu }) => {
   };
 
   useEffect(() => {
-    dispatch(getCompany());
+    dispatch(getCompany()); // Existing dispatch for fetching company data
+    dispatch(fetchAllHomepageAds()); // New dispatch for fetching ads data
   }, [dispatch]);
+  
+  const ads_image = topbarAds && topbarAds[0] && topbarAds[0].ads_image?.name;
 
+  
   const image = company?.fileupload?.name;
   const companyName = company?.name
     ?.split(/\s+/)
@@ -30,8 +35,8 @@ const Topbar = ({ isOpen, toggleMenu }) => {
     firstName = companyName[0];
     secondName = companyName[1];
   } else {
-    firstName = "खुराक";
-    secondName = "मिडिया";
+    firstName = "Nepathya";
+    secondName = "Media";
   }
   const date = moment();
   const formattedDate = date
@@ -79,7 +84,7 @@ const Topbar = ({ isOpen, toggleMenu }) => {
 
       <section className=" hidden md:block">
         <img
-          src={`${topbarAds[0]?.image ? IIMAGE_URL / topbarAds[0]?.image : "AdBanner.png"}`}
+          src={`${IIMAGE_URL}/${ads_image}`}
           className="self-right md:max-h-[80px] md:max-w-[650px]  lg:max-h-[96px]  lg:max-w-[500px] "
           alt="AdBanner"
         />

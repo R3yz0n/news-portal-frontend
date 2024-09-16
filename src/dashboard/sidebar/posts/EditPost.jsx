@@ -24,7 +24,7 @@ const EditPost = () => {
   const { id } = useParams();
   const { error } = useSelector((state) => state.post);
   const { categories, error: categoryError } = useSelector(
-    (state) => state.category,
+    (state) => state.category,  
   );
   const { userId } = useSelector((state) => state.auth);
 

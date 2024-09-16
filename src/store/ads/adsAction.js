@@ -7,7 +7,7 @@ export const fetchAllHomepageAds = createAsyncThunk(
   async (values, { rejectWithValue }) => {
     try {
       const res = await axios.get(`${APIURL}/ads/homepage`);
-      return res.data?.advertises;
+      return res.data?.advertises;  
     } catch (error) {
       if (error.response && error.response.data.error) {
         return rejectWithValue(error.response.data.error);
