@@ -31,7 +31,7 @@ const NewsSection = ({ post, name, slug, catId }) => {
       </section>
     );
   return (
-    <main className=" relative h-auto w-full">
+    <main className="  relative h-auto w-full">
       <section className="min-h-16">
         <NewsTypeTitle title={name} />
         <HorizontalLine />
@@ -71,7 +71,7 @@ const NewsSection = ({ post, name, slug, catId }) => {
       >
         <span>+</span> थप सामाग्री
       </motion.button>
-
+      {/* end category */}
       {endCategoryAds[catId - 1]?.image && (
         <div className=" mb-8 rounded-sm  bg-opacity-20">
           <img

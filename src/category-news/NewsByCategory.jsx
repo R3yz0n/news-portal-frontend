@@ -17,6 +17,7 @@ const NewsByCategory = ({ category }) => {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
+  console.log(specificCategoryAds);
 
   const adsImage = specificCategoryAds;
 

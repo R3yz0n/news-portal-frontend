@@ -16,7 +16,8 @@ const LandingPage = () => {
   const { categories } = useSelector((state) => state.category);
   const [showPopup, setShowPopup] = useState(true);
   const { popupAds } = useSelector((state) => state.ads);
-  const popupImage = popupAds[0]?.image;
+
+  const popupImage = popupAds && popupAds[0]?.ads_image?.name;
 
   const dispatch = useDispatch();
   useEffect(() => {

@@ -67,7 +67,7 @@ const NewsDetails = () => {
         <div className=" place-self-start rounded-sm bg-black bg-opacity-20">
           {postDetailAds[0]?.image && (
             <img
-              src={`${IIMAGE_URL}/${postDetailAds[0]?.image}`}
+              src={`${IIMAGE_URL}/${postDetailAds[0]?.ads_image?.name}`}
               alt=""
               className="h-[80px] w-full object-contain md:h-[100px] "
               loading="lazy"
@@ -82,20 +82,24 @@ const NewsDetails = () => {
 
       {/* TODO : map over the remaining postdetailAds */}
       <div className=" float-left my-4 rounded-sm bg-black bg-opacity-20">
-        <img
-          src={`${IIMAGE_URL}/${postDetailAds[0]?.image}`}
-          alt=""
-          className="h-[100px] w-full object-contain"
-          loading="lazy"
-        />
+        {postDetailAds[1]?.image && (
+          <img
+            src={`${IIMAGE_URL}/${postDetailAds[1]?.ads_image?.name}`}
+            alt=""
+            className="h-[100px] w-full object-contain"
+            loading="lazy"
+          />
+        )}
       </div>
-      <div className=" float-left my-2 rounded-sm bg-black bg-opacity-20">
-        <img
-          src={`${IIMAGE_URL}/${postDetailAds[0]?.image}`}
-          alt=""
-          className="h-[100px] w-full object-contain"
-          loading="lazy"
-        />
+      <div className=" b float-left my-2 rounded-sm bg-black bg-opacity-20">
+        {postDetailAds[2]?.image && (
+          <img
+            src={`${IIMAGE_URL}/${postDetailAds[2]?.ads_image?.name}`}
+            alt=""
+            className="h-[100px] w-full object-contain"
+            loading="lazy"
+          />
+        )}
       </div>
 
       <motion.button
