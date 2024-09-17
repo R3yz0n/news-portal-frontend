@@ -72,7 +72,7 @@ const Footer = () => {
             For more information
           </h6>
           <p className="mb-3 cursor-pointer text-gray-300 transition-all duration-500 hover:underline sm:mb-0">
-            Chairman/ Executive Editor : Paras Rahadi
+            Chairman/ Executive Editor : {company?.sanchalak}
           </p>
           <p className="cursor-pointer text-gray-300 transition-all duration-700 hover:underline">
             Editor in Chief : {company?.pradhan_sanchalak}
