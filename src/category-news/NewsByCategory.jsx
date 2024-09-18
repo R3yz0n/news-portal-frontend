@@ -20,6 +20,8 @@ const NewsByCategory = ({ category }) => {
   console.log(specificCategoryAds);
 
   const adsImage = specificCategoryAds;
+  // console.log(adsImage[0].ads_image.name,"here");
+  
 
   useEffect(() => {
     window.scroll(0, 0);
