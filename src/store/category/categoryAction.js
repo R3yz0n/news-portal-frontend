@@ -64,7 +64,7 @@ export const editCategoryById = createAsyncThunk(
     try {
       const data = await axios.put(
         `${APIURL}/category/${item.id}`,
-        item,
+        item.name,
         getToken(),
       );
       toast.success("Category updated successful.", { duration: 2500 });

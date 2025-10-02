@@ -42,8 +42,13 @@ const EditCategory = () => {
     initialValues: initialValues,
     validationSchema: categorySchema,
     onSubmit: async (values) => {
+      // debugger;
       try {
-        await dispatch(editCategoryById(values)).unwrap();
+        const categoryToBeEdited = {
+          id: id,
+          name: values,
+        };
+        await dispatch(editCategoryById(categoryToBeEdited)).unwrap();
         handleBack();
       } catch (err) {}
     },
@@ -61,8 +66,11 @@ const EditCategory = () => {
         }
       } catch (error) {}
     };
-    fetchAdvertises();
+    if (id) {
+      fetchAdvertises();
+    }
   }, [dispatch, id]);
+  console.log(id);
 
   return (
     <AddWrapper
