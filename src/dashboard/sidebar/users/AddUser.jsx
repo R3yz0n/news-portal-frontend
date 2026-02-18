@@ -8,7 +8,6 @@ import { clearFields } from "../../../store/client/ClientSlice";
 import { motion } from "framer-motion";
 import { fadeInOut } from "../../../animations";
 import { FaUserFriends } from "react-icons/fa";
-import AddImage from "../../common/AddImage";
 import { useState } from "react";
 import { addUser } from "../../../store/user/userAction";
 import { IoEye } from "react-icons/io5";
@@ -17,7 +16,7 @@ import { addUserSchema } from "../../../schema";
 const AddUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { error } = useSelector((state) => state.user);
+  const { error, loading } = useSelector((state) => state.user);
   const [image, setImage] = useState({ data: null, error: null });
   const [showPassword, setShowPassword] = useState(false);
 
@@ -36,19 +35,18 @@ const AddUser = () => {
   };
 
   const handleImageChange = (selectedImage) => {
-    if (selectedImage === "DELETE_IMAGE") {
-      setImage({
-        ...image,
-        data: null,
-      });
-      return;
-    }
-
-    setImage({
-      ...image,
-      data: selectedImage,
-      error: null,
-    });
+    // if (selectedImage === "DELETE_IMAGE") {
+    //   setImage({
+    //     ...image,
+    //     data: null,
+    //   });
+    //   return;
+    // }
+    // setImage({
+    //   ...image,
+    //   data: selectedImage,
+    //   error: null,
+    // });
   };
 
   const { values, errors, handleBlur, touched, handleChange, handleSubmit } =
@@ -56,16 +54,16 @@ const AddUser = () => {
       initialValues: initialValues,
       validationSchema: addUserSchema,
       onSubmit: async (values) => {
-        if (image.data === null) {
-          setImage({ ...image, error: "Please select an image." });
-          return;
-        }
+        // if (image.data === null) {
+        //   setImage({ ...image, error: "Please select an image." });
+        //   return;
+        // }
         values.phone_no = values.phone_no.toString();
         const formData = new FormData();
         Object.entries(values).forEach(([key, value]) => {
           formData.append(key, value);
         });
-        formData.append("profile_image", image.data);
+        // formData.append("profile_image", image.data);
 
         try {
           await dispatch(addUser(formData)).unwrap();
@@ -172,13 +170,6 @@ const AddUser = () => {
               )}
             </div>
           </aside>
-
-          <AddImage
-            handleImageChange={handleImageChange}
-            image={image.data}
-            error={image.error}
-            width="w-full lg:w-1/2"
-          />
         </div>
 
         <div className="ml-2 min-h-[5px] self-start text-sm text-red-600">
@@ -190,7 +181,11 @@ const AddUser = () => {
               <div key={key}>{error[key][0]}</div>
             ))}
         </div>
-        <SubmitButton value="submit" handleSubmit={handleSubmit} />
+        <SubmitButton
+          value={loading ? "Submitting..." : "Submit"}
+          disabled={loading}
+          handleSubmit={handleSubmit}
+        />
       </form>
     </AddWrapper>
   );

@@ -65,8 +65,8 @@ const Navbar = ({ isOpen, toggleMenu }) => {
     firstName = companyName[0];
     secondName = companyName[1];
   } else {
-    firstName = "खुराक";
-    secondName = "मिडिया";
+    firstName = "Media";
+    secondName = "Company";
   }
 
   return (
@@ -79,7 +79,7 @@ const Navbar = ({ isOpen, toggleMenu }) => {
           : "top-4 xl:w-[1280px]   xl:rounded-md "
       }`}
     >
-      <div
+      <div1
         className={` flex  scale-y-100    flex-col items-center justify-around px-4 opacity-100 duration-500  md:flex-row ${
           isOpen
             ? "h-[480px] scale-y-100 py-3  opacity-100 md:h-auto md:py-0"
@@ -143,7 +143,7 @@ const Navbar = ({ isOpen, toggleMenu }) => {
           remainingCategories={remainingCategories}
           toggleMenu={toggleMenu}
         />
-      </div>
+      </div1>
     </motion.nav>
   );
 };

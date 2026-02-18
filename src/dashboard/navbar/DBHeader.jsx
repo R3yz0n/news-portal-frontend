@@ -19,7 +19,7 @@ const DBHeader = () => {
   return (
     <section className="  flex w-full items-center justify-between gap-3 px-1">
       <h3 className="font-sans text-2xl font-extrabold text-gray-700 ">
-        Nepathya Media Pvt. Ltd.
+        Admin Panel
       </h3>
 
       <div className=" flex items-center justify-center gap-4">

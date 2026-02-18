@@ -20,15 +20,13 @@ const Topbar = ({ isOpen, toggleMenu }) => {
     dispatch(getCompany()); // Existing dispatch for fetching company data
     dispatch(fetchAllHomepageAds()); // New dispatch for fetching ads data
   }, [dispatch]);
-  
+
   const ads_image = topbarAds && topbarAds[0] && topbarAds[0].ads_image?.name;
 
-  
   const image = company?.fileupload?.name;
   const companyName = company?.name
     ?.split(/\s+/)
     ?.filter((part) => part.trim() !== "");
-
   let firstName;
   let secondName;
   if (companyName) {
@@ -83,11 +81,13 @@ const Topbar = ({ isOpen, toggleMenu }) => {
       <HamburgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
 
       <section className=" hidden md:block">
-        <img
-          src={`${IIMAGE_URL}/${ads_image}`}
-          className="self-right md:max-h-[80px] md:max-w-[650px]  lg:max-h-[96px]  lg:max-w-[500px] "
-          alt="AdBanner"
-        />
+        {ads_image && (
+          <img
+            src={`${IIMAGE_URL}/${ads_image}`}
+            className="self-right md:max-h-[80px] md:max-w-[650px]  lg:max-h-[96px]  lg:max-w-[500px] "
+            alt="AdBanner"
+          />
+        )}
       </section>
     </main>
   );

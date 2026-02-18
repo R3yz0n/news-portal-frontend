@@ -24,7 +24,7 @@ const EditAdvertisement = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { error, advertisementById, advertisements } = useSelector(
+  const { error, advertisementById, advertisements, loading } = useSelector(
     (state) => state.advertisement,
   );
   const handleBack = () => {
@@ -112,7 +112,10 @@ const EditAdvertisement = () => {
           <span>{error?.length > 0 && error}</span>
         </motion.p>
 
-        <SubmitButton value="Update" />
+        <SubmitButton
+          value={loading ? "Updating..." : "Update"}
+          disabled={loading}
+        />
       </form>
     </AddWrapper>
   );

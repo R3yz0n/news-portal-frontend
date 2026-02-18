@@ -18,7 +18,7 @@ const EditUser = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const { error } = useSelector((state) => state.user);
+  const { error, loading } = useSelector((state) => state.user);
   const [image, setImage] = useState({ data: null, error: null, name: null });
 
   const initialValues = {
@@ -220,7 +220,7 @@ const EditUser = () => {
         </div>
 
         {/* Submit Button */}
-        <SubmitButton value="submit" handleSubmit={handleSubmit} />
+        <SubmitButton value={loading ? "Submitting..." : "Submit"} disabled={loading} handleSubmit={handleSubmit} />
       </form>
     </AddWrapper>
   );

@@ -18,7 +18,7 @@ import { FaUserFriends } from "react-icons/fa";
 const EditClient = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { error } = useSelector((state) => state.client);
+  const { error, loading } = useSelector((state) => state.client);
   const { id } = useParams();
 
   const initialValues = {
@@ -123,7 +123,11 @@ const EditClient = () => {
               <div key={key}>{error[key][0]}</div>
             ))}
         </div>
-        <SubmitButton value="submit" handleSubmit={handleSubmit} />
+        <SubmitButton
+          value={loading ? "Submitting..." : "Submit"}
+          disabled={loading}
+          handleSubmit={handleSubmit}
+        />
       </form>
     </AddWrapper>
   );

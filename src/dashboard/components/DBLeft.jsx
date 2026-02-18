@@ -18,12 +18,6 @@ const navigationItems = [
 const DBLeft = () => {
   return (
     <section className="min-w-210 hidden h-full w-[200px] flex-col gap-3 bg-gradient-to-r from-gray-100 to-gray-300 px-[11px] py-2 shadow-md backdrop-blur-md md:flex">
-      <NavLink
-        to="/"
-        className="items flex items-center justify-start gap-4 pl-1 pt-2 text-2xl"
-      >
-        <img src={Logo} className="w-25 mb-5" alt="Nepathya Media" />
-      </NavLink>
       <hr className="border-gray-400" />
 
       <ul className="flex flex-col gap-3 ">

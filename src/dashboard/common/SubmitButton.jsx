@@ -6,6 +6,7 @@ const SubmitButton = (props) => {
       type="submit"
       className="btn-blue font-bold px-4 py-1.5 text-sm mt-3"
       onClick={props.handleSubmit}
+      disabled={props.disabled}
     >
       {props.value}
     </button>

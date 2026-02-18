@@ -33,10 +33,9 @@ const Scroller = () => {
     <>
       {showScrollLink && (
         <ScrollLink
-          className="b-10 fixed bottom-5 right-6 z-50 cursor-pointer text-5xl text-red-800 duration-1000 hover:bottom-7 "
+          className="b-10 fixed bottom-5 right-6 z-50 cursor-pointer text-5xl text-red-800 duration-1000 hover:bottom-7"
           activeClass="active"
-          to="TOP"
-          spy={true}
+          to="top-element" // Ensure this matches an element ID in the DOM
           smooth={true}
           duration={500}
           onClick={scrollToTop}

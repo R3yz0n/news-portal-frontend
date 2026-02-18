@@ -1,12 +1,6 @@
-import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import NewsSection from "../news-section/NewsSection";
-import LatestNews from "../components/latest-news/LatestNews";
 import LatestOFLatestNews from "../components/latest-news/LatestOFLatestNews";
-import adsgif from "../assests/15998500.gif";
-import smallads from "../assests/small_sidebar.gif";
-import dashboard from "../assests/DashboardIllustration.png";
-import { fetchAllHomepageAds } from "../store/ads/adsAction";
+import NewsSection from "../news-section/NewsSection";
 import { IIMAGE_URL } from "../utils/constants";
 
 const HomePage = () => {

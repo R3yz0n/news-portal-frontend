@@ -9,7 +9,6 @@ import PreLoader from "./common/PreLoader";
 import { getPostsForHomePage } from "./store/post/postAction";
 import ProtectedRoute from "./common/ProtectedRoute";
 import NotFoundPage from "./common/NotFoundPage";
-import { IIMAGE_URL } from "./utils/constants";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,7 +24,7 @@ function App() {
 
       const timeoutId = setTimeout(() => {
         setShowLoader(false);
-      }, 500);
+      }, 0);
 
       return () => clearTimeout(timeoutId);
     } catch (error) {

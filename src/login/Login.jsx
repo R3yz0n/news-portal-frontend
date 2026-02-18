@@ -13,12 +13,15 @@ import { login } from "../store/auth/authSlice";
 import { getCompany } from "../store/company/companyAction";
 import { FaEye } from "react-icons/fa";
 
-const initialValues = { username: "", password: "" };
+const initialValues = {
+  username: process.env.REACT_APP_ADMIN_USERNAME || "",
+  password: process.env.REACT_APP_ADMIN_PASSWORD || "",
+};
 
 const Login = () => {
   const { company } = useSelector((state) => state.company);
   const [showPw, setShowPw] = useState(false);
-
+  console.log(initialValues.username, initialValues.password);
   const navigate = useNavigate("");
   const [loginState, setLoginState] = useState({
     loading: false,
@@ -31,9 +34,9 @@ const Login = () => {
     ?.split(/\s+/)
     ?.filter((part) => part.trim() !== "");
 
-  const firstName = typeof companyName === "string" ? companyName[0] : "खुराक";
-  const secondName =
-    typeof companyName === "string" ? companyName[1] : "मिडिया";
+  const firstName =
+    typeof companyName === "string" ? companyName[0] : "Company";
+  const secondName = typeof companyName === "string" ? companyName[1] : "Name";
 
   const { values, errors, handleBlur, touched, handleChange, handleSubmit } =
     useFormik({

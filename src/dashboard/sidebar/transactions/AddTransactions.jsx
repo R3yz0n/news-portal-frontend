@@ -21,7 +21,7 @@ const AddTransactions = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { clients } = useSelector((state) => state.client);
-  const { error } = useSelector((state) => state.transaction);
+  const { error, loading } = useSelector((state) => state.transaction);
 
   const handleBack = () => {
     navigate(-1);
@@ -142,7 +142,11 @@ const AddTransactions = () => {
         <div className="ml-2 min-h-[5px] self-start text-sm text-red-600">
           {error && <motion.div {...fadeInOut}>{error}</motion.div>}
         </div>
-        <SubmitButton value="submit" handleSubmit={handleSubmit} />
+        <SubmitButton
+          value={loading ? "Submitting..." : "Submit"}
+          disabled={loading}
+          handleSubmit={handleSubmit}
+        />
       </form>
     </AddWrapper>
   );

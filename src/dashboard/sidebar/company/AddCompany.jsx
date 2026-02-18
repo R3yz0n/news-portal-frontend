@@ -31,7 +31,7 @@ const AddCompany = () => {
   ]);
   const [socialLinksError, setSocialLinksError] = useState(null);
   const [image, setImage] = useState({ data: null, error: null, name: null });
-  const { company, error } = useSelector((state) => state.company);
+  const { company, error, loading } = useSelector((state) => state.company);
 
   useEffect(() => {
     const fetchCompany = async () => {
@@ -227,7 +227,10 @@ const AddCompany = () => {
                     <div key={key}>{error[key][0]}</div>
                   ))}
               </div>
-              <SubmitButton value="submit" />
+              <SubmitButton
+                value={loading ? "Submitting..." : "Submit"}
+                disabled={loading}
+              />
             </form>
           </AddWrapper>
         )}
