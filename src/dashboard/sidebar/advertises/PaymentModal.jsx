@@ -15,7 +15,7 @@ const PaymentModal = ({
 }) => {
   const dispatch = useDispatch();
   const [payingAmount, setPayingAmount] = useState({ amount: "", error: null });
-  const { error } = useSelector((state) => state.advertises);
+  const { error, loading } = useSelector((state) => state.advertises);
   const handlePayingChange = (e) => {
     if (e.target.value > remainingAmount) {
       setPayingAmount({
@@ -90,8 +90,9 @@ const PaymentModal = ({
             {...btnClick}
             className="rounded bg-green-500 px-5 py-0.5 text-white"
             onClick={() => handlePayment(id)}
+            disabled={loading}
           >
-            Pay
+            {loading ? "Paying..." : "Pay"}
           </motion.button>
           <motion.button
             {...btnClick}

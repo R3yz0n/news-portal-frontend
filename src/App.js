@@ -24,7 +24,7 @@ function App() {
 
       const timeoutId = setTimeout(() => {
         setShowLoader(false);
-      }, 0);
+      }, 100);
 
       return () => clearTimeout(timeoutId);
     } catch (error) {

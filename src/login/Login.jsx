@@ -21,7 +21,6 @@ const initialValues = {
 const Login = () => {
   const { company } = useSelector((state) => state.company);
   const [showPw, setShowPw] = useState(false);
-  console.log(initialValues.username, initialValues.password);
   const navigate = useNavigate("");
   const [loginState, setLoginState] = useState({
     loading: false,

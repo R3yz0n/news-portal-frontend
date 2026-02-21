@@ -35,7 +35,7 @@ const AddAdvertises = () => {
   const { clientList } = useSelector((state) => state.client);
   const [image, setImage] = useState({ data: null, error: null });
   const [categorySelect, setCategorySelect] = useState(null);
-  const { error } = useSelector((state) => state.advertises);
+  const { error, loading } = useSelector((state) => state.advertises);
   const { categories, error: categoryError } = useSelector(
     (state) => state.category,
   );
@@ -333,7 +333,11 @@ const AddAdvertises = () => {
               <div key={key}>{error[key][0]}</div>
             ))}
         </div>
-        <SubmitButton value="submit" handleSubmit={handleSubmit} />
+        <SubmitButton
+          loading={loading}
+          value={loading ? "Submitting..." : "Submit"}
+          handleSubmit={handleSubmit}
+        />
       </form>
     </AddWrapper>
   );

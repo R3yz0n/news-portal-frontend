@@ -17,7 +17,7 @@ const NewsSection = ({ post, name, slug, catId }) => {
   const redirectToDetailsPage = (id) => {
     navigate(`/news-details/${id}`);
   };
-
+  console.log(endCategoryAds);
   if (post.length < 1)
     return (
       <section className="min-h-16 flex-big">
@@ -75,23 +75,13 @@ const NewsSection = ({ post, name, slug, catId }) => {
       {endCategoryAds[catId - 1]?.image && (
         <div className=" mb-8 rounded-sm  bg-opacity-20">
           <img
-            src={`${IIMAGE_URL}/${endCategoryAds[catId - 1]?.image}`}
+            src={`${IIMAGE_URL}/${endCategoryAds[catId - 1]?.ads_image?.name}`}
             alt=""
             className="h-[100px] w-full object-contain"
             loading="lazy"
           />
         </div>
       )}
-      {/* 
-      {endCategoryAds?.map((ads, i) => (
-        <div key={i} className="mb-8 rounded-sm bg-black bg-opacity-20">
-          <img
-            src={`${IIMAGE_URL}/${ads?.image}`}
-            alt="ads"
-            className="h-[100px] w-full object-contain"
-          />
-        </div>
-      ))} */}
     </main>
   );
 };

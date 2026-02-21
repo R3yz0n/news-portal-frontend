@@ -18,7 +18,7 @@ import { useEffect } from "react";
 const EditCategory = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { error } = useSelector((state) => state.category);
+  const { error, loading } = useSelector((state) => state.category);
   const { id } = useParams();
 
   const initialValues = {
@@ -101,7 +101,11 @@ const EditCategory = () => {
               <div key={key}>{error[key][0]}</div>
             ))}
         </div>
-        <SubmitButton value="submit" handleSubmit={handleSubmit} />
+        <SubmitButton
+          value={loading ? "Submitting..." : "Submit"}
+          disabled={loading}
+          handleSubmit={handleSubmit}
+        />
       </form>
     </AddWrapper>
   );

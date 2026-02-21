@@ -21,7 +21,7 @@ const EditAdvertises = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [image, setImage] = useState({ data: null, error: null, name: null });
-  const { error } = useSelector((state) => state.advertises);
+  const { error, loading } = useSelector((state) => state.advertises);
 
   const handleImageChange = (selectedImage) => {
     if (selectedImage === "DELETE_IMAGE") {
@@ -152,7 +152,11 @@ const EditAdvertises = () => {
               <div key={key}>{error[key][0]}</div>
             ))}
         </div>
-        <SubmitButton value="update" handleSubmit={handleSubmit} />
+        <SubmitButton
+          disabled={loading}
+          value={loading ? "Updating..." : "Update"}
+          handleSubmit={handleSubmit}
+        />
       </form>
     </AddWrapper>
   );

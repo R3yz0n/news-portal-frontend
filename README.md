@@ -1,3 +1,5 @@
+# Backend GitHub: [https://github.com/R3yz0n/news-portal-backend](https://github.com/R3yz0n/news-portal-backend)
+
 # News Portal Frontend
 
 This is the frontend client for the News Portal project, built with React and Tailwind CSS.

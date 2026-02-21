@@ -24,7 +24,7 @@ const PaymentModal = ({ showModal, setShowModal, handleFilter }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { clientList } = useSelector((state) => state.client);
-  const { error } = useSelector((state) => state.transaction);
+  const { error, loading } = useSelector((state) => state.transaction);
 
   const clientOptions = [
     ...clientList.map((client) => ({
@@ -139,8 +139,9 @@ const PaymentModal = ({ showModal, setShowModal, handleFilter }) => {
             {...btnClick}
             className="rounded bg-green-500 px-5 py-0.5 text-white"
             onClick={() => handleSubmit()}
+            disabled={loading}
           >
-            Pay
+            {loading ? "Paying..." : "Pay"}
           </motion.button>
           <motion.button
             {...btnClick}

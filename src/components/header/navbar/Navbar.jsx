@@ -118,6 +118,7 @@ const Navbar = ({ isOpen, toggleMenu }) => {
         >
           गृहपृष्ठ
         </NavLink>
+
         {categories?.slice(0, sliceValue).map((cat, i) => (
           <NavLink
             onClick={toggleMenu}
@@ -132,6 +133,17 @@ const Navbar = ({ isOpen, toggleMenu }) => {
             {cat.name}
           </NavLink>
         ))}
+        <NavLink
+          onClick={toggleMenu}
+          to="/admin/home"
+          className={`z-[-50!important] w-full cursor-pointer rounded-lg px-4 py-2 text-navTextColor drop-shadow-lg hover:bg-navbarBgColor  hover:brightness-125 md:w-auto md:rounded-none md:py-4 md:font-semibold lg:text-[18px]    ${
+            `/admin` === decodeURIComponent(location.pathname)
+              ? "bg-red-600"
+              : ""
+          }`}
+        >
+          ड्यासबोर्ड
+        </NavLink>
         {error && (
           <NavLink className="md:self-center">
             Error fetching categories

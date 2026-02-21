@@ -126,22 +126,18 @@ const Modal = ({ image, onClose, description }) => {
   console.log(description);
   return (
     <main className="fixed left-0 top-0 flex h-screen w-screen items-center  justify-center bg-black bg-opacity-80">
-      <section className="relative flex h-auto max-h-[600px] w-auto flex-col rounded-sm bg-white bg-opacity-70 px-20 py-8">
+      <section className="relative flex h-auto max-h-[600px]  w-min flex-col rounded-sm  bg-opacity-70 ">
         <button
-          className="absolute right-2 top-2 rounded bg-red-500 px-3 py-0.5 text-gray-100"
+          className="absolute right-0 top-0 rounded bg-red-500 px-3 py-0.5 text-gray-100"
           onClick={onClose}
         >
-          Close
+          X
         </button>
         <img
           src={`${IIMAGE_URL}/${image}`}
-          className="m-auto max-h-[80%] min-h-[30px] min-w-[300px] max-w-full object-contain"
+          className="m-auto max-h-[80%] min-h-[30px] min-w-[500px] max-w-full object-contain"
           alt="sss"
         />
-        <div className="mt-4 max-w-96 text-sm font-semibold">
-          <p className="text-base"> Description</p>
-          {description}
-        </div>
       </section>
     </main>
   );
