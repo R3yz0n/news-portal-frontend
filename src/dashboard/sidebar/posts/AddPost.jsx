@@ -21,7 +21,7 @@ import { FaNewspaper } from "react-icons/fa6";
 const AddPost = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { error } = useSelector((state) => state.post);
+  const { error, loading } = useSelector((state) => state.post);
   const { categories, error: categoryError } = useSelector(
     (state) => state.category,
   );
@@ -207,7 +207,11 @@ const AddPost = () => {
               <div key={key}>{error[key][0]}</div>
             ))}
         </div>
-        <SubmitButton value="submit" handleSubmit={handleSubmit} />
+        <SubmitButton
+          value={loading ? "Submitting..." : "Submit"}
+          disabled={loading}
+          handleSubmit={handleSubmit}
+        />
       </form>
     </AddWrapper>
   );

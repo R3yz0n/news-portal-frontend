@@ -40,10 +40,7 @@ const TransactionsTable = () => {
         </thead>
         <tbody className="text-gray-700">
           {loading ? (
-            <motion.tr
-              {...fadeInOut}
-              className="flex w-full p-2 text-lg text-red-700"
-            >
+            <motion.tr {...fadeInOut} className="flex w-full p-2 text-lg">
               <td>Loading...</td>
             </motion.tr>
           ) : transactions?.clientData?.length > 0 ? (
@@ -72,7 +69,7 @@ const TransactionsTable = () => {
           ) : (
             <motion.tr
               {...fadeInOut}
-              className="flex w-full p-8 text-center text-lg text-red-700"
+              className="flex w-full p-8 text-center text-lg"
             >
               <td>{error?.length > 0 ? error : "No Transactions Found."}</td>
             </motion.tr>

@@ -76,10 +76,7 @@ const AdvertisesTable = ({ page, searchKeyword }) => {
         </thead>
         <tbody className={`scrollbar-track-black  overflow-y-scroll `}>
           {loading ? (
-            <motion.tr
-              {...fadeInOut}
-              className="flex w-full p-2 text-lg text-red-700"
-            >
+            <motion.tr {...fadeInOut} className="flex w-full p-2 text-lg">
               <td>Loading...</td>
             </motion.tr>
           ) : clientData?.length > 0 ? (
@@ -130,10 +127,7 @@ const AdvertisesTable = ({ page, searchKeyword }) => {
               </React.Fragment>
             ))
           ) : (
-            <motion.tr
-              {...fadeInOut}
-              className="flex w-full p-2 text-lg text-red-700"
-            >
+            <motion.tr {...fadeInOut} className="flex w-full p-2 text-lg">
               <td>{error?.length > 0 ? error : "No Advertises Found."}</td>
             </motion.tr>
           )}

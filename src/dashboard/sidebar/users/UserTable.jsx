@@ -48,10 +48,7 @@ const ClientTable = ({ page, searchKeyword }) => {
         )}
         <tbody className={`scrollbar-track-black overflow-y-scroll`}>
           {loading ? (
-            <motion.tr
-              {...fadeInOutHalf}
-              className="flex w-full p-2 text-lg text-red-700"
-            >
+            <motion.tr {...fadeInOutHalf} className="flex w-full p-2 text-lg">
               <td>Loading...</td>
             </motion.tr>
           ) : users?.length > 0 && error === null ? (
@@ -80,10 +77,7 @@ const ClientTable = ({ page, searchKeyword }) => {
               </motion.tr>
             ))
           ) : (
-            <motion.tr
-              {...fadeInOut}
-              className="flex w-full p-2 text-lg text-red-700"
-            >
+            <motion.tr {...fadeInOut} className="flex w-full p-2 text-lg">
               <td>{error?.length > 0 ? error : "No Users Found."}</td>
             </motion.tr>
           )}

@@ -64,10 +64,7 @@ const PostTable = ({ page, searchKeyword }) => {
         )}
         <tbody className={`scrollbar-track-black  overflow-y-scroll `}>
           {loading ? (
-            <motion.tr
-              {...fadeInOut}
-              className="flex w-full p-2 text-lg text-red-700"
-            >
+            <motion.tr {...fadeInOut} className="flex w-full p-2 text-lg">
               <td>Loading...</td>
             </motion.tr>
           ) : posts?.length > 0 && error === null ? (
@@ -102,10 +99,7 @@ const PostTable = ({ page, searchKeyword }) => {
               </motion.tr>
             ))
           ) : (
-            <motion.tr
-              {...fadeInOut}
-              className="flex w-full p-2 text-lg text-red-700"
-            >
+            <motion.tr {...fadeInOut} className="flex w-full p-2 text-lg">
               <td>{error?.length > 0 ? error : "No Posts Found."}</td>
             </motion.tr>
           )}

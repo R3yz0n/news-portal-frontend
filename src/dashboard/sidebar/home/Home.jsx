@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import CountUp from "react-countup";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { FaUserAlt } from "react-icons/fa";
 import { MdFoodBank, MdVerified } from "react-icons/md";
-
-import { useDispatch } from "react-redux";
 
 const Home = () => {
   return (

@@ -20,8 +20,8 @@ const ViewAdvertise = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handlePreviewClick = ({ image, description }) => {
-    setSelectedAdImage(image);
+  const handlePreviewClick = ({ ads_image, description }) => {
+    setSelectedAdImage(ads_image?.name || null);
     setSelectedAdDescription(description);
     setIsModalOpen(true);
   };
@@ -86,7 +86,7 @@ const ViewAdvertise = () => {
                           className="cursor-pointer rounded-sm bg-blue-500 px-3 text-sm text-gray-100"
                           onClick={() =>
                             handlePreviewClick({
-                              image: advertise?.image,
+                              ads_image: advertise?.ads_image,
                               description: advertise?.description,
                             })
                           }

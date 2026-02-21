@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { fadeInOut } from "../animations";
 import { ImageOverlay } from "../common/Overlay";
 import AdvertisementBanner from "../components/advertisement-banner/AdvertisementBanner";
-import image from "../assests/AllCategory.png";
 import { fetchSpecificCategoryAds } from "../store/ads/adsAction";
 
 const NewsByCategory = ({ category }) => {
@@ -21,7 +20,6 @@ const NewsByCategory = ({ category }) => {
 
   const adsImage = specificCategoryAds;
   // console.log(adsImage[0].ads_image.name,"here");
-  
 
   useEffect(() => {
     window.scroll(0, 0);

@@ -49,10 +49,7 @@ const ClientTable = ({ page, searchKeyword }) => {
         )}
         <tbody className={`overflow-y-scroll`}>
           {loading ? (
-            <motion.tr
-              {...fadeInOut}
-              className="flex w-full p-2 text-lg text-red-700"
-            >
+            <motion.tr {...fadeInOut} className="flex w-full p-2 text-lg">
               <td>Loading...</td>
             </motion.tr>
           ) : clients?.length > 0 && error === null ? (
@@ -77,10 +74,7 @@ const ClientTable = ({ page, searchKeyword }) => {
               </motion.tr>
             ))
           ) : (
-            <motion.tr
-              {...fadeInOut}
-              className="flex w-full p-2 text-lg text-red-700"
-            >
+            <motion.tr {...fadeInOut} className="flex w-full p-2 text-lg">
               <td>{error?.length > 0 ? error : "No Clients Found."}</td>
             </motion.tr>
           )}
